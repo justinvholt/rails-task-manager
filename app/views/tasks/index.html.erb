@@ -1,0 +1,17 @@
+<div id="container" class="container">
+  <h1>Tasklist</h1>
+  <div class="row">
+    <div class="col-sm-10 offset-sm-1">
+      <p><% @tasks.each do |task| %>
+      <div class="form-group">
+        <% complete = task.completed == true ? "checked" : "" %>
+        <input type="checkbox" disabled <%= complete %> />
+      <%= link_to task.title, task_path(task) %><br><br>
+      <% end %>
+      </p>
+      </div>
+      <hr>
+      <p><%= link_to "<i class='fa fa-plus'></i>Create a New Task".html_safe, tasks_new_path %></p>
+    </div>
+  </div>
+</div>
